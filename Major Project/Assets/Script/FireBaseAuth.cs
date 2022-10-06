@@ -39,19 +39,7 @@ public class FireBaseAuth : MonoBehaviour
     }
     void InitFireBase()
     {
-
         auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
-        /*if (FirebaseAuth.DefaultInstance.CurrentUser != null && openFireBase == false)
-        {
-            user = auth.CurrentUser;
-            UserNameTxt.text = user.DisplayName;
-            UserEmailTxt.text = user.Email;
-            StartCoroutine(LoadImageUrl(CheckImageUrl(user.PhotoUrl.ToString())));
-            LoginScreen.SetActive(false);
-            ProfileScreen.SetActive(true);
-        }*/
-
-
     }
     
     
@@ -122,6 +110,8 @@ public class FireBaseAuth : MonoBehaviour
     public void OnSignOut()
     {
         GoogleSignIn.DefaultInstance.SignOut();
+        LoginScreen.SetActive(true);
+        ProfileScreen.SetActive(false);
     }
 
 }
